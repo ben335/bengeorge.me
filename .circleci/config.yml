@@ -7,7 +7,7 @@ jobs:
     environment:
       HUGO_BUILD_DIR: ~/hugo/public
     steps:
-      
+
       # install git
       - run: apk update && apk add git
 
@@ -31,3 +31,15 @@ jobs:
           command: |
             htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
             --empty-alt-ignore --disable-external
+
+      # `deploy` step: identical to a `run` step, but uses only one container:
+      # /docs/2.0/configuration-reference/#deploy 
+      - deploy:
+          name: deploy to AWS
+          command: |
+            if [ "${CIRCLE_BRANCH}" = "test" ]; then
+              aws s3 sync $HUGO_BUILD_DIR \
+              s3://test.bengeorge.me/ --delete
+            else
+              echo "Not master branch, dry run only"
+            fi
