@@ -38,8 +38,10 @@ jobs:
           name: deploy to AWS
           command: |
             if [ "${CIRCLE_BRANCH}" = "test" ]; then
-              aws s3 sync $HUGO_BUILD_DIR \
-              s3://test.bengeorge.me/ --delete
+              aws --region eu-west-2 s3 sync dist/ s3://test.bengeorge.me/ --delete
+            elif [ "${CIRCLE_BRANCH}" == "prod" ]; then
+              aws --region eu-west-2 s3 sync dist/ s3://bengeorge.me-safety/ --delete
+              aws cloudfront create-invalidation --distribution-id THEIDHERETBC --paths '/*'
             else
               echo "Not master branch, dry run only"
             fi
