@@ -1,4 +1,66 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+languageCode = "en-uk"
+title = "Ben George"
 theme = "hugo-theme-hello-friend-ng"
+
+baseurl = "/"
+
+[params]
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04 -0700"
+
+  # Metadata mostly used in document's head
+  description = "Homepage and blog by Ben George"
+  keywords = "homepage, blog, it, development, technology, cto, engineering, ben george"
+  images = [""]
+
+  # Directory name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+  # Default theme "light" or "dark"
+  defaultTheme = "light"
+
+[languages]
+  [languages.en]
+    title = "Ben George"
+    homeSubtitle = "Head of Engineering at Molo Finance"
+  	keywords = "homepage, blog, it, development, technology, cto, engineering, ben george"
+    copyright = "Ben George"
+    readOtherPosts = "Read other posts"
+
+    [languages.en.params.logo]
+      logoText = "bengeorge"
+      logoHomeLink = "/"
+    # or
+    #
+    # path = "/img/logo.svg"
+    # alt = "Your example logo alt text"
+
+# Social icons
+  [[params.social]]
+    name = "twitter"
+    url  = "https://twitter.com/@ben_grge"
+
+  [[params.social]]
+    name = "email"
+    url  = "mailto:b@bengeorge.me"
+
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/ben335"
+
+  [[params.social]]
+    name = "linkedin"
+    url  = "https://www.linkedin.com/in/bmgeorge/"
+
+
+# And you can even create generic menu
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about"
+  [[menu.main]]
+    #identifier = "blog"
+    #name       = "Blog"
+    #url        = "/posts"
