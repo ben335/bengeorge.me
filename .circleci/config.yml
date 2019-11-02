@@ -2,10 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cibuilds/bengeorge.me:latest
-    working_directory: ~/Github/bengeorge.me
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
     environment:
-      HUGO_BUILD_DIR: ~/Github/bengeorge.me/public
+      HUGO_BUILD_DIR: ~/hugo/public
     steps:
 
       # install git
