@@ -1,66 +1,50 @@
-languageCode = "en-uk"
-title = "Ben George"
-theme = "hugo-theme-hello-friend-ng"
-
 baseurl = "/"
+languageCode = "en-us"
+theme = "hello-friend"
+paginate = 5
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
-
-  # Metadata mostly used in document's head
-  description = "Homepage and blog by Ben George"
-  keywords = "homepage, blog, it, development, technology, cto, engineering, ben george"
-  images = [""]
-
-  # Directory name of your blog content (default is `content/posts`)
+  # dir name of your blog content (default is `content/posts`)
   contentTypeName = "posts"
-  # Default theme "light" or "dark"
+  # "light" or "dark"
   defaultTheme = "light"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+  # Show reading time in minutes for posts
+  showReadingTime = false
 
 [languages]
   [languages.en]
+
     title = "Ben George"
-    homeSubtitle = "Head of Engineering at Molo Finance"
-  	keywords = "homepage, blog, it, development, technology, cto, engineering, ben george"
+    subtitle = "Head of Engineering at Molo Finance"
+    keywords = "homepage, blog, it, development, technology, cto, engineering, ben george, fintech, tech, finance"
     copyright = "Ben George"
+
+    menuMore = "Show more"
+    writtenBy = "Written by"
+    readMore = "Read more"
     readOtherPosts = "Read other posts"
+    newerPosts = "Newer posts"
+    olderPosts = "Older posts"
+    minuteReadingTime = "min read"
+    dateFormatSingle = "2006-01-02"
+    dateFormatList = "2006-01-02"
 
     [languages.en.params.logo]
-      logoText = "bengeorge"
+      logoText = "bengeorge.me"
       logoHomeLink = "/"
     # or
     #
-    # path = "/img/logo.svg"
+    # path = "/img/your-example-logo.svg"
     # alt = "Your example logo alt text"
 
-# Social icons
-  [[params.social]]
-    name = "twitter"
-    url  = "https://twitter.com/@ben_grge"
-
-  [[params.social]]
-    name = "email"
-    url  = "mailto:b@bengeorge.me"
-
-  [[params.social]]
-    name = "github"
-    url  = "https://github.com/ben335"
-
-  [[params.social]]
-    name = "linkedin"
-    url  = "https://www.linkedin.com/in/bmgeorge/"
-
-
-# And you can even create generic menu
-[menu]
-  [[menu.main]]
-    identifier = "about"
-    name       = "About"
-    url        = "/about"
-  [[menu.main]]
-    #identifier = "blog"
-    #name       = "Blog"
-    #url        = "/posts"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/"

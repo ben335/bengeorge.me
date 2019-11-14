@@ -1,9 +1,6 @@
 +++
 title = "About"
-date = "2014-04-09"
 aliases = ["about-us","about-ben","contact"]
-[ author ]
-  name = "Ben George Profile"
 +++
 
 I'm **Ben George**, I live in Lymington, Hampsire and spend most my week days in London.
@@ -14,5 +11,3 @@ I'm a technologist and have been working in Finance Technology for the last 7 ye
 Feel free to get in touch on [Linkedin](https://www.linkedin.com/in/bmgeorge/) or [Twitter](https://twitter.com/@ben_grge).
 
 ![Ben George Profice Picture](/bengeorgelowres.jpg)
-
-
