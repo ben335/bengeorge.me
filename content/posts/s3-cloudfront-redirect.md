@@ -1,5 +1,5 @@
 +++
-title = "Amazon S3 and CloudFront redirect HTTP to HTTPS and WWW to non www root domain without a double redirect."
+title = "Amazon S3 and CloudFront redirect without a double redirect."
 description = ""
 author = "Ben George"
 type = ["posts","post"]
@@ -17,6 +17,8 @@ categories = [
 ]
 
 +++
+
+## HTTP to HTTPS and WWW to non www root domain
 
 Performing redirects for a static site in AWS the right way is a little tricky, in this post I’m going to go through the steps to redirect a non secure HTTP and www address (e.g. http://www.bengeorge.me) to a secure HTTPS root domain (e.g. https://bengeorge.me) for a static site stored in S3 and delivered through CloudFront.
 
