@@ -64,6 +64,15 @@ First create an origin access identity in cloud front and use that id.
         ]
     }
 
+
+On cloudfront create a domain identity and use that in the Origin settings.
+![cloudfront-origin-domain-identity](/posts/post-s3-cloudfront-redirect/cloudfront-origin-domain-identity.png)
+
+
 ![s3-bucket-policy](/posts/post-s3-cloudfront-redirect/s3-bucket-policy.png)
+
+![terminal-301-moved-permanently](/posts/post-s3-cloudfront-redirect/terminal-301-moved-permanently.png)
+
+![terminal-200-redirect-cloudfront-hit](/posts/post-s3-cloudfront-redirect/terminal-200-redirect-cloudfront-hit.png)
 
 
