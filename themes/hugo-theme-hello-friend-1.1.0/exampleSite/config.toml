@@ -1,38 +1,30 @@
 baseurl = "/"
-languageCode = "en"
-theme = "hello-friend-master"
+languageCode = "en-us"
+theme = "hugo-theme-hello-friend"
 paginate = 5
-googleAnalytics = "UA-151347318-1"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
+  contentTypeName = "post"
   # "light" or "dark"
-  defaultTheme = "light"
-  # if you set this to 0, only submenu trigger will be visible
+  defaultTheme = "dark"
   showMenuItems = 2
-  # Show reading time in minutes for posts
-  showReadingTime = false
 
 [languages]
   [languages.en]
-
-    title = "Ben George"
-    subtitle = "Head of Engineering at Molo Finance"
-    keywords = "homepage, blog, it, development, technology, cto, engineering, ben george, fintech, tech, finance"
-
+    title = "Hello Friend"
+    subtitle = "A simple theme for Hugo"
+    keywords = ""
+    copyright = ""
     menuMore = "Show more"
     writtenBy = "Written by"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
     newerPosts = "Newer posts"
     olderPosts = "Older posts"
-    minuteReadingTime = "min read"
-    dateFormatSingle = "2006-01-02"
-    dateFormatList = "2006-01-02"
 
     [languages.en.params.logo]
-      logoText = "bengeorge.me"
+      logoText = "hello friend"
       logoHomeLink = "/"
     # or
     #
@@ -45,6 +37,6 @@ googleAnalytics = "UA-151347318-1"
         name = "About"
         url = "/about"
       [[languages.en.menu.main]]
-        identifier = "posts"
-        name = "Posts"
-        url = "/"
+        identifier = "showcase"
+        name = "Showcase"
+        url = "/showcase"
