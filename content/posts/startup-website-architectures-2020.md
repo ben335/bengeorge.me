@@ -37,99 +37,40 @@ Version Control: Github
 At this point things are very simple, changes to the websites involve a simple commit and push, CircleCI (or equivalent) has been setup to perform builds and handle automated deploys. Pull requests are raised from the develop branch, when reviewed and approved they are merged into the production branch, built and deployed.
 
 
+## Angel to Seed
+*Headcount: 3-10*
+
+Changes are requested more frequently, but not enough that the current engineering team are motivated to provide any self serve solutions yet. Instead a few of the team are briefed on how to work with Markdown formatting and are given permissions to push these changes into a development branch in git. They enjoy picking up these new skills, pull requests are small, simple and quick and provide some release process.
+
+
+## Seed to Series A
+*Headcount: 10-30*
+
+Now things are starting to get tricky, product and marketing all want to be able to make changes without involving engineering. The business also wants greater accountability for changes and process control. 
+
+At this point you need to provide tools for non technical users to make safe changes.
+
+But wait, I really don’t want to break or complicate the simple well architected website that we’ve built. Time for a headless CMS, recently i’ve used both Butter CMS & Contentful with successful results.
+
+### What is a Headless CMS?
+A headless CMS is a back-end only content management system (CMS) built from the ground up as a content repository that makes content accessible via a RESTful API for display on any device.
+
+### Flexible Changes
+A common request is for flexible changes using a ‘drag and drop’ interface. These changes I would rather route this through design and UX. In my experience, it's not a good idea to let product/marketing loose on page layout/design on the fly. A middle ground solution to this is to develop a few templates for page content that can be used. This way there speed, flexibility and control over design changes.
+
+### Landing Pages
+An extreme case is landing pages, often there is a use case for these to be constantly changed and optimised. To separate that concern I would use [Unbounce](https://unbounce.com/) for targeted landing pages that are highly customisable and outside the scope of the rest of the website.
+
+## My 2020 go to Architecture:
+
+**App:** VueJS / React <br />
+**CMS:** Contentful / NUXT (For static caching) <br />
+**Hosting:** AWS/cloudfront/Cloudflare/Netlify <br />
+**CI:** Circle CI <br />
+**Version control:** Github/Gitlab <br />
+Deployment, single click push button deployment
+
 
 ![cloudfront-origin-domain-identity](/posts/post-startup-website-architectures-2020/startup-website-architectures-2020.png)
-
-
-
-
-
-
-## Is my redirect performing as expected?
-
-In terminal run the following command: 
-
-    curl -I http://www.example.com
-
-Note that the WWW to root redirect is expected here and HTTP to HTTPS is then handled at the root distribution.
-
-
-The intended behavior is: 
-
-    HTTP/1.1 301 Moved Permanently
-    Server: AmazonS3
-    Location: http://bengeorge.me/
-    X-Cache: Hit from cloudfront
-
-However we are getting:
-
-    HTTP/1.1 301 Moved Permanently
-    Server: CloudFront
-    Location: https://www.bengeorge.me/
-    X-Cache: Redirect from cloudfront
-
-This is because of the default S3 behavior, a request served via the usual S3 endpoint will result in a response with the following header:
-
-    x-amz-website-redirect-location
-
-While the S3 website endpoint returns a HTTP redirect.
-
-Is the redirect coming from cloudfront:
-The intended behavior is:
-
-    X-Cache: Redirect from cloudfront
-However we are getting:
-
-    x-cache: Miss from cloudfront
-
-## Ok let's fix this
-
-To stop S3 serving content directly restrict bucket access only to cloudfront in both the www and root buckets:
-
-Add the following policy: (Note the specific domain arn for each bucket) and cloudfront origin access ID.
-
-    {
-        "Version": "2008-10-17",
-        "Id": "PolicyForCloudFrontPrivateContent",
-        "Statement": [
-            {
-                "Sid": "1",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity xx12345678xx"
-                },
-                "Action": "s3:GetObject",
-                "Resource": "arn:aws:s3:::example.com/*"
-            }
-        ]
-    }
-
-You can check in S3 to see if the buckets are public:
-![s3-buckets-non-public](/posts/post-s3-cloudfront-redirect/s3-buckets-non-public.png)
-
-Create an origin access identity in cloudfront and use that ID in the Origin settings.
-
-![cloudfront-origin-domain-identity](/posts/post-s3-cloudfront-redirect/cloudfront-origin-domain-identity.png)
-
-![s3-bucket-policy](/posts/post-s3-cloudfront-redirect/s3-bucket-policy.png)
-
-Now the quite fiddly non obvious step is not using the regular S3 URI but the "s3-website" one. For the WWW origin settings, change the origin to mybucketname.s3-website-us-east-1.amazonaws.com instead of using the bucket directly.
-
-![s3-bucket-origin](/posts/post-s3-cloudfront-redirect/s3-bucket-origin.png)
-
-
-## Testing
-
-In terminal run the following command:
-    
-    curl -I http://www.example.com
-
-![terminal-301-moved-permanently](/posts/post-s3-cloudfront-redirect/terminal-301-moved-permanently.png)
-
-And check the hit on the root: 
-
-    curl -I https://example.com
-
-![terminal-200-redirect-cloudfront-hit](/posts/post-s3-cloudfront-redirect/terminal-200-redirect-cloudfront-hit.png)
 
 
