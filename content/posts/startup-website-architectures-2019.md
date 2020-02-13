@@ -61,14 +61,16 @@ A common request is for flexible changes using a ‘drag and drop’ interface. 
 ### Landing Pages
 An extreme case is landing pages, often there is a use case for these to be constantly changed and optimised. To separate that concern I would use [Unbounce](https://unbounce.com/) for targeted landing pages that are highly customisable and outside the scope of the rest of the website.
 
+<br />
+
 ## My 2020 go to Architecture:
 
 **App:** VueJS / React <br />
-**CMS:** Contentful / NUXT (For static caching) <br />
+**CMS:** Contentful / NUXT(Vue) (For static caching) <br />
 **Hosting:** AWS/cloudfront/Cloudflare/Netlify <br />
 **CI:** Circle CI <br />
 **Version control:** Github/Gitlab <br />
-Deployment, single click push button deployment
+**Landing Pages:** Unbounce <br />
 
 
 ![cloudfront-origin-domain-identity](/posts/post-startup-website-architectures-2019/startup-website-architectures-2019.png)
