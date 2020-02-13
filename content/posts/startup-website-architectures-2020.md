@@ -24,14 +24,14 @@ What works today won’t necessarily be right for tomorrow, for startups that’
 
 We need a website with some basic functionality, one of the founding team knows how to code (even at a basic level) and wants to put something together that is quick to build, cheap to host, SEO friendly, scalable and fast.
 
-Static site ( HTML, CSS, JS)
-Or
-Static site generators
-    Jekyll
+Static site ( HTML, CSS, JS) <br />
+Or <br />
+Static site generators <br />
+    Jekyll <br />
     Hugo (Written in GO, superfast)
 
-Hosting: AWS S3 with Cloudfront
-CI: Circle CI
+Hosting: AWS S3 with Cloudfront <br />
+CI: Circle CI <br />
 Version Control: Github
 
 At this point things are very simple, changes to the websites involve a simple commit and push, CircleCI (or equivalent) has been setup to perform builds and handle automated deploys. Pull requests are raised from the develop branch, when reviewed and approved they are merged into the production branch, built and deployed.
