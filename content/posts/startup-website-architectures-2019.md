@@ -1,5 +1,5 @@
 +++
-title = "Startup Website architectures in 2020."
+title = "Startup Website architectures in 2019."
 description = ""
 author = "Ben George"
 type = ["posts","post"]
@@ -9,7 +9,7 @@ tags = [
     "Website",
     "Architecture",
 ]
-date = "2020-01-10"
+date = "2019-12-10"
 categories = [
     "Development",
     "Startups",
@@ -71,6 +71,6 @@ An extreme case is landing pages, often there is a use case for these to be cons
 Deployment, single click push button deployment
 
 
-![cloudfront-origin-domain-identity](/posts/post-startup-website-architectures-2020/startup-website-architectures-2020.png)
+![cloudfront-origin-domain-identity](/posts/post-startup-website-architectures-2019/startup-website-architectures-2019.png)
 
 
