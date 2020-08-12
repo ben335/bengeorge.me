@@ -10,4 +10,6 @@ I head technology at LiveMore Capital where we’re building a digital mortgage 
 
 Feel free to get in touch on [Linkedin](https://www.linkedin.com/in/bmgeorge/) or [Twitter](https://twitter.com/@ben_grge).
 
+Download my public key [here](ben_george_public_key.pub)
+
 ![Ben George Profice Picture](/bengeorgelowres.jpg)
